@@ -12,6 +12,12 @@ namespace HarryPotter.Domain.Tests
     {
         private Order _order;
 
+        [SetUp]
+        public void Setup()
+        {
+            this._order = new Order();
+        }
+
         [Test]
         public void New_CreateInstanceWith2Books_Create2Items()
         { 
@@ -24,15 +30,44 @@ namespace HarryPotter.Domain.Tests
             Assert.AreEqual(books[1], this._order.Items[1].Book);
         }
 
-        [Test]
-        public void GetTotal_OneBook_Get8Pesos()
+        [TestCase(1, 8, 8)]
+        [TestCase(2, 8, 16)]
+        [TestCase(5, 8, 40)]
+        public void GetTotal_AddOneBookManyTime_GetTotalCorrect(int quantity, double bookPrice, double expectedTotal)
         {
-            Book book = new Book() { Price = 8 };
-            IList<Book> booksInOrder = new List<Book>();
-            booksInOrder.Add(book);
-            this._order = new Order(booksInOrder);
+            // Arrange
+            Book book = new Book() { Price = bookPrice };
+            this._order.AddBook(book, quantity);
+            // Act
             double totalCalculated = this._order.GeTotal();
-            Assert.AreEqual(8, totalCalculated);
+
+            // Assert
+            Assert.AreEqual(expectedTotal, totalCalculated);
+        }
+
+        [Test]
+        public void GetTotal_EmptyOrder_GetZero()
+        {
+
+            // Assert
+            Assert.AreEqual(0, this._order.GeTotal());
+        }
+
+        [Test]
+        public void AddBookToOrder_AddOneBookFiveTimes_OrderWithOneItemAndQuantityEqualFive()
+        {
+            // Arrange
+            Author author = new Author();
+            Book book01 = new Book() { Price = 8, Author = author, Name = "Book name" };
+            int quantity = 5;
+
+            // Act
+            OrderItem itemAdded = this._order.AddBook(book01, quantity);
+
+            // Assert
+            Assert.AreEqual(1, this._order.Items.Count);
+            Assert.AreEqual(itemAdded, this._order.Items[0]);
+            Assert.AreEqual(itemAdded.Book, book01);
         }
     }
 }
