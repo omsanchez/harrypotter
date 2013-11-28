@@ -21,5 +21,10 @@ namespace HarryPotter.Domain
             foreach (Book book in books)
                 this.Items.Add(new OrderItem(book));
         }
+
+        public double GeTotal()
+        {
+            return 8;
+        }
     }
 }

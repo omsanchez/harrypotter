@@ -23,5 +23,16 @@ namespace HarryPotter.Domain.Tests
             Assert.AreEqual(books[0], this._order.Items[0].Book);
             Assert.AreEqual(books[1], this._order.Items[1].Book);
         }
+
+        [Test]
+        public void GetTotal_OneBook_Get8Pesos()
+        {
+            Book book = new Book() { Price = 8 };
+            IList<Book> booksInOrder = new List<Book>();
+            booksInOrder.Add(book);
+            this._order = new Order(booksInOrder);
+            double totalCalculated = this._order.GeTotal();
+            Assert.AreEqual(8, totalCalculated);
+        }
     }
 }
