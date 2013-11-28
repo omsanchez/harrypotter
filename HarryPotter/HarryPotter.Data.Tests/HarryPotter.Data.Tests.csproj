@@ -47,6 +47,9 @@
     <Reference Include="NDbUnit.MySql">
       <HintPath>..\packages\NDbUnit.MySql.1.6.8.0\lib\Net35\NDbUnit.MySql.dll</HintPath>
     </Reference>
+    <Reference Include="NDbUnit.SqlClient">
+      <HintPath>..\packages\NDbUnit.SqlClient.1.6.8.0\lib\Net35\NDbUnit.SqlClient.dll</HintPath>
+    </Reference>
     <Reference Include="NHibernate">
       <HintPath>..\packages\NHibernate.3.3.3.4001\lib\Net35\NHibernate.dll</HintPath>
     </Reference>
@@ -84,6 +87,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

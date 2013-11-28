@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using HarryPotter.Domain;
 
 namespace HarryPotter.Services
 {
-    public class Class1
+    public interface IBooksService
     {
+        IList<Book> GetAll();
     }
 }
