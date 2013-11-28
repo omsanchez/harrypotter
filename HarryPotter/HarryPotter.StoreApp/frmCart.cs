@@ -24,6 +24,17 @@ namespace HarryPotter.StoreApp
             this._orderService = new OrderService();
         }
 
+        private void frmCart_Load(object sender, EventArgs e)
+        {
+            UpdateTotal();
+        }
+
+        private void UpdateTotal()
+        {
+            this.lblTotal.Text = "Su total a pagar son: " + this._order.GeTotal().ToString()+ " pesos";
+        }
+
+
         private void lblEmail_TextChanged(object sender, EventArgs e)
         {
             this._order.ClientEmail = lblEmail.Text;
@@ -41,6 +52,7 @@ namespace HarryPotter.StoreApp
                 MessageBox.Show("Se generó un error al crear su orden. " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
     }
 }

@@ -26,7 +26,7 @@ namespace HarryPotter.Domain
         {
             double total = 0;
             foreach (OrderItem item in this.Items)
-                total = item.Book.Price * item.Quantity;
+                total += item.Book.Price * item.Quantity;
             return total;
         }
 

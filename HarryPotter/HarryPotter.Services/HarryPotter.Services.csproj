@@ -31,6 +31,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ImproveIT.Data">
+      <HintPath>..\packages\ImproveIT.Data\ImproveIT.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NHibernate.3.3.3.4001\lib\Net35\NHibernate.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -48,6 +55,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\HarryPotter.Data\HarryPotter.Data.csproj">
+      <Project>{66EF3CB6-2739-42F1-9ED4-9DAA1C9828E5}</Project>
+      <Name>HarryPotter.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HarryPotter.Domain\HarryPotter.Domain.csproj">
       <Project>{452DDF95-C224-447A-AB3D-B8839275C8E4}</Project>
       <Name>HarryPotter.Domain</Name>
