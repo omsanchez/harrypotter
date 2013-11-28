@@ -5,7 +5,9 @@ using System.Text;
 
 namespace HarryPotter.Domain
 {
-    public class Class1
+    public class Author
     {
+        public virtual int Id { get; set; }
+        public virtual string Name { get; set; }
     }
 }
